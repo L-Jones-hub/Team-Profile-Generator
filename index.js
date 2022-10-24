@@ -4,7 +4,7 @@ const Employee = require(`./lib/Employee`);
 const Engineer = require(`./lib/Engineer`);
 const Intern = require(`./lib/Intern`);
 const Manager = require(`./lib/Manager`);
-const { isGeneratorFunction } = require("util/types");
+const generator = require("./content/generator");
 
 let employeeArray = [];
 
@@ -116,7 +116,7 @@ function createManager(manQuestions) {
         console.log(employeeArray);
         console.log(employeeArray[0].getPosition());
         console.log(employeeArray[0].name);
-        isGeneratorFunction.generateHTML(employeeArray);
+        generator.generateHTML(employeeArray);
         return;
       default:
         console.log(`Invalid response.`);
@@ -140,7 +140,7 @@ function createEngineer(engQuestions) {
         console.log(employeeArray);
         console.log(employeeArray[0].getPosition());
         console.log(employeeArray[0].name);
-        generateHTML(employeeArray);
+        generator.generateHTML(employeeArray);
         return;
       default:
         console.log(`Invalid response.`);
@@ -164,7 +164,7 @@ function createIntern(intQuestions) {
         console.log(employeeArray);
         console.log(employeeArray[0].getPosition());
         console.log(employeeArray[0].name);
-        generateHTML(employeeArray);
+        generator.generateHTML(employeeArray);
         return;
       default:
         console.log(`Invalid response.`);
