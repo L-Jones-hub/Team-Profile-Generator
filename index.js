@@ -4,6 +4,7 @@ const Employee = require(`./lib/Employee`);
 const Engineer = require(`./lib/Engineer`);
 const Intern = require(`./lib/Intern`);
 const Manager = require(`./lib/Manager`);
+const { isGeneratorFunction } = require("util/types");
 
 let employeeArray = [];
 
@@ -93,3 +94,82 @@ const intQuestions = [
     name: `addMore`,
   },
 ];
+
+function createManager(manQuestions) {
+  inquirer.prompt(manQuestions).then((response) => {
+    employeeArray.push(
+      new Manager(
+        response.name,
+        response.id,
+        response.email,
+        response.officeNumber
+      )
+    );
+    switch (response.addMore) {
+      case `Engineer`:
+        createEngineer(engQuestions);
+        return;
+      case `Intern`:
+        createIntern(intQuestions);
+        return;
+      case `No, I'm done.`:
+        console.log(employeeArray);
+        console.log(employeeArray[0].getPosition());
+        console.log(employeeArray[0].name);
+        isGeneratorFunction.generateHTML(employeeArray);
+        return;
+      default:
+        console.log(`Invalid response.`);
+    }
+  });
+}
+
+function createEngineer(engQuestions) {
+  inquirer.prompt(engQuestions).then((response) => {
+    employeeArray.push(
+      new Engineer(response.name, response.id, response.email, response.github)
+    );
+    switch (response.addMore) {
+      case `Engineer`:
+        createEngineer(engQuestions);
+        return;
+      case `Intern`:
+        createIntern(intQuestions);
+        return;
+      case `No, I'm done.`:
+        console.log(employeeArray);
+        console.log(employeeArray[0].getPosition());
+        console.log(employeeArray[0].name);
+        generateHTML(employeeArray);
+        return;
+      default:
+        console.log(`Invalid response.`);
+    }
+  });
+}
+
+function createIntern(intQuestions) {
+  inquirer.prompt(intQuestions).then((response) => {
+    employeeArray.push(
+      new Engineer(response.name, response.id, response.email, response.school)
+    );
+    switch (response.addMore) {
+      case `Engineer`:
+        createEngineer(engQuestions);
+        return;
+      case `Intern`:
+        createIntern(intQuestions);
+        return;
+      case `No, I'm done.`:
+        console.log(employeeArray);
+        console.log(employeeArray[0].getPosition());
+        console.log(employeeArray[0].name);
+        generateHTML(employeeArray);
+        return;
+      default:
+        console.log(`Invalid response.`);
+    }
+  });
+}
+
+createManager(manQuestions);
