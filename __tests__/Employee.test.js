@@ -16,7 +16,7 @@ describe(`Employee`, () => {
     expect(obj.email).toBe(email);
   });
   it(`should return the id from the Employee object`, () => {
-    const email = `8`;
+    const id = `8`;
     const obj = new Employee(id);
     expect(obj.id).toBe(id);
   });
