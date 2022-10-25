@@ -40,32 +40,24 @@ const content = `
 `;
 
 const generateHTML = function (data) {
-  console.log(data);
   let icon = ``;
   let cardInfoEnd = ``;
   for (i = 0; i < data.length; i++) {
-    console.log(data[i].name);
-    console.log(data[i].getPosition());
     switch (data[i].getPosition()) {
       case `Manager`:
-        icon = `coffee`;
-        cardInfoEnd = `<a href="#" class="list-group-item list-group-item-action disabled">Office Number: ${data[0].officeNumber}</a>`;
+        cardInfoEnd = `<a href="#" class="list-group-item list-group-item-action disabled">Office Number: ${data[i].officeNumber}</a>`;
         break;
       case `Engineer`:
-        icon = `glasses`;
-        cardInfoEnd = `<a href="https://github.com/${data[i].github}" class="list-group-item list-group-item-action">GitHub: ${data[0].github}</a>`;
+        cardInfoEnd = `<a href="https://github.com/${data[i].github}" class="list-group-item list-group-item-action">GitHub: ${data[i].github}</a>`;
         break;
       case `Intern`:
-        icon = `school`;
-        cardInfoEnd = `<a href="#" class="list-group-item list-group-item-action disabled">School: ${data[0].school}</a>`;
+        cardInfoEnd = `<a href="#" class="list-group-item list-group-item-action disabled">School: ${data[i].school}</a>`;
         break;
     }
     let cardInfoStart = `<div class="card col-md-4 col-lg-3 p-0 mb-5 ms-3 me-3 rounded">
         <div class="card-header w-100 col-12">
             <h3>${data[i].name}</h3>
-            <h4>${data[
-              i
-            ].getPosition()}<span class="material-icons">${icon}</span>
+            <h4>${data[i].getPosition()}
         </div>
         <div class="card-body ">
             <div class="list-group">
@@ -79,7 +71,6 @@ const generateHTML = function (data) {
     }</a>`;
 
     const visible = content + cardInfoStart + cardInfoEnd;
-    console.log(visible);
     fs.writeFile(`./content/index.html`, visible, (err) => {
       err ? console.error(err) : console.log(`Page created!`);
     });

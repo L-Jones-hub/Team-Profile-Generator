@@ -17,7 +17,7 @@ const manQuestions = [
   {
     type: `input`,
     message: `What is the manager's employee ID number?`,
-    name: `ID`,
+    name: `id`,
   },
   {
     type: `input`,
@@ -32,7 +32,7 @@ const manQuestions = [
   {
     type: `list`,
     message: `Would you like to add anymore team members?`,
-    choices: [`Manager`, `Engineer`, `Intern`, `No, I'm done.`],
+    choices: [`Engineer`, `Intern`, `No, I'm done.`],
     name: `addMore`,
   },
 ];
@@ -46,7 +46,7 @@ const engQuestions = [
   {
     type: `input`,
     message: `What is the engineer's employee ID number?`,
-    name: `ID`,
+    name: `id`,
   },
   {
     type: `input`,
@@ -61,7 +61,7 @@ const engQuestions = [
   {
     type: `list`,
     message: `Would you like to add anymore team members?`,
-    choices: [`Manager`, `Engineer`, `Intern`, `No, I'm done.`],
+    choices: [`Engineer`, `Intern`, `No, I'm done.`],
     name: `addMore`,
   },
 ];
@@ -75,7 +75,7 @@ const intQuestions = [
   {
     type: `input`,
     message: `What is the intern's employee ID number?`,
-    name: `ID`,
+    name: `id`,
   },
   {
     type: `input`,
@@ -90,7 +90,7 @@ const intQuestions = [
   {
     type: `list`,
     message: `Would you like to add anymore team members?`,
-    choices: [`Manager`, `Engineer`, `Intern`, `No, I'm done.`],
+    choices: [`Engineer`, `Intern`, `No, I'm done.`],
     name: `addMore`,
   },
 ];
@@ -151,7 +151,7 @@ function createEngineer(engQuestions) {
 function createIntern(intQuestions) {
   inquirer.prompt(intQuestions).then((response) => {
     employeeArray.push(
-      new Engineer(response.name, response.id, response.email, response.school)
+      new Intern(response.name, response.id, response.email, response.school)
     );
     switch (response.addMore) {
       case `Engineer`:
