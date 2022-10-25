@@ -1,6 +1,6 @@
 const fs = require(`fs`);
 
-const content = `
+let teamInfo = `
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,12 +16,12 @@ const content = `
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div class="jumbotron jumbotron-fluid bg-dark text-white text-center">
+    <div class="jumbotron jumbotron-fluid text-white text-center">
       <div class="container">
         <h1 class="display-4">My Team</h1>
       </div>
     </div>
-    <div class="container-fluid d-flex align-items-middle justify-content-center bg-info align-items-center mb-5">
+    <div class="container-fluid d-flex align-items-middle justify-content-center align-items-center mb-5">
     <div class="row cards d-flex justify-content-center flex-wrap col-11">
    </div>
    </div>
@@ -40,7 +40,6 @@ const content = `
 `;
 
 const generateHTML = function (data) {
-  let icon = ``;
   let cardInfoEnd = ``;
   for (i = 0; i < data.length; i++) {
     switch (data[i].getPosition()) {
@@ -70,8 +69,9 @@ const generateHTML = function (data) {
       data[i].email
     }</a>`;
 
-    const visible = content + cardInfoStart + cardInfoEnd;
-    fs.writeFile(`./content/index.html`, visible, (err) => {
+    const page = teamInfo + cardInfoStart + cardInfoEnd;
+
+    fs.writeFile(`./content/index.html`, page, (err) => {
       err ? console.error(err) : console.log(`Page created!`);
     });
   }

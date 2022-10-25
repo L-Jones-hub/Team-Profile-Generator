@@ -1,0 +1,18 @@
+:root {
+  --bg: #dbd8e3;
+  --card: #5c5470;
+  --dark: #2a2438;
+}
+
+body {
+  background-color: var(--bg);
+}
+
+.jumbotron {
+  background-color: var(--dark);
+}
+
+.card {
+  background-color: var(--card);
+  color: white;
+}
