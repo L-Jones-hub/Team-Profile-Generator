@@ -39,8 +39,7 @@ let teamInfo = `
 </html>
 `;
 
-const generateHTML = function (data) {
-  let cardInfoEnd = ``;
+function generateCard(data) {
   for (i = 0; i < data.length; i++) {
     switch (data[i].getPosition()) {
       case `Manager`:
@@ -68,13 +67,20 @@ const generateHTML = function (data) {
                 }" class="list-group-item list-group-item-action">E-mail: ${
       data[i].email
     }</a>`;
-
-    const page = teamInfo + cardInfoStart + cardInfoEnd;
-
-    fs.writeFile(`./content/index.html`, page, (err) => {
-      err ? console.error(err) : console.log(`Page created!`);
-    });
+    page = teamInfo + cardInfoStart + cardInfoEnd + endingInfo;
   }
+}
+
+const generateHTML = function (data) {
+  let cardInfoEnd = ``;
+  let cardInfoStart = ``;
+  generateCard(data);
+
+  const page = teamInfo + cardInfoStart + cardInfoEnd + endingInfo;
+
+  fs.writeFile(`./content/index.html`, page, (err) => {
+    err ? console.error(err) : console.log(`Page created!`);
+  });
 };
 
 module.exports = { generateHTML };
