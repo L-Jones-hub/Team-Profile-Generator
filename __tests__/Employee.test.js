@@ -1,23 +1,20 @@
 const Employee = require(`../lib/Employee`);
 
 describe(`Employee`, () => {
-  it(`should create a new object of Employee`, () => {
-    const obj = new Employee();
-    expect(typeof obj).toBe(`object`);
+  it("Should be a typeof 'object' whenever I initialize it", () => {
+    const testedElement = new Employee();
+    expect(typeof testedElement).toBe("object");
   });
-  it(`should return the name from the Employee object`, () => {
-    const name = `Bob`;
-    const obj = new Employee(name);
-    expect(obj.name).toBe(name);
+  it("When I pass the first parameter through the Employee class, it should relate to the name property of the object created", () => {
+    const testedElement = new Employee("Bob");
+    expect(testedElement.name).toBe("Bob");
   });
-  it(`should return the email from the Employee object`, () => {
-    const email = `bob@bob.com`;
-    const obj = new Employee(email);
-    expect(obj.email).toBe(email);
+  it("When I pass the second parameter through the Employee class, it should relate to the id property of the object created", () => {
+    const testedElement = new Employee("Bob", 8);
+    expect(testedElement.id).toBe(8);
   });
-  it(`should return the id from the Employee object`, () => {
-    const id = `8`;
-    const obj = new Employee(id);
-    expect(obj.id).toBe(id);
+  it("When I pass the third parameter through the Employee class, it should relate to the email property of the object created", () => {
+    const testedElement = new Employee("Bob", 8, "bob@bob.com");
+    expect(testedElement.email).toBe("bob@bob.com");
   });
 });
