@@ -31,7 +31,7 @@ Read about this license at [MIT license](https://choosealicense.com/licenses/).
 
 ## Credits
 
-Thank you Megan and Mark for your help and words of encouragent!
+Thank you Megan and Mark for your help and words of encouragement!
 
 ---
 
