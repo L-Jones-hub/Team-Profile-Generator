@@ -17,7 +17,7 @@ Accepts information from the command line to create an HTML webpage that display
 
 ## How to Use
 
-Watch [this video]() to see a demonstration of how to use this Team Profile Generator.
+Watch [this video](https://www.loom.com/share/bc7ecb8305c34bfd8152da46b712dcdf) to see a demonstration of how to use this Team Profile Generator.
 
 ---
 
@@ -28,9 +28,10 @@ Watch [this video]() to see a demonstration of how to use this Team Profile Gene
 Read about this license at [MIT license](https://choosealicense.com/licenses/).
 
 ---
+
 ## Credits
 
-Thank you Megan and Mark for your help and words of encouragent! 
+Thank you Megan and Mark for your help and words of encouragent!
 
 ---
 
