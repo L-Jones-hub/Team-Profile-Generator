@@ -8,8 +8,9 @@ body {
   background-color: var(--bg);
 }
 
-.jumbotron {
+header {
   background-color: var(--dark);
+  color: white;
 }
 
 .card {

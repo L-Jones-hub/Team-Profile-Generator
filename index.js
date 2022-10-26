@@ -98,12 +98,7 @@ const intQuestions = [
 function createManager(manQuestions) {
   inquirer.prompt(manQuestions).then((response) => {
     employeeArray.push(
-      new Manager(
-        response.name,
-        response.id,
-        response.email,
-        response.officeNumber
-      )
+      new Manager(response.name, response.id, response.email, response.office)
     );
     switch (response.addMore) {
       case `Engineer`:
